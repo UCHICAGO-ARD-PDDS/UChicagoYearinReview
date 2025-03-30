@@ -9,13 +9,11 @@ from great_tables import GT
 from moviepy import *
 
 
-def start_series(dictionary, background_color, font_1, font_2, meme_path, username):
+def start_series(dictionary, background_color, font_1, font_2, meme_path, username, phoenix_path):
     video_list = []
     duration = 0
     gift_officer_name = dictionary['Final Name']
     interval = 1
-
-    phoenix_path = fr"C:\Users\{username}\Box\Prospect Management & Financial Analytics\PM Analytics and Reporting\Deliverables\24.10.28 ARD Wrapped 24\UChicago_Phoenix_Outlined_1Color_White_RGB.png"
 
     phoenix = (ImageClip(phoenix_path)
             .with_position(("center", "center"))

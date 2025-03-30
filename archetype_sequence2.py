@@ -12,13 +12,9 @@ from moviepy import *
 class Archetype:
 
 
-    def __init__(self, dictionary, background_color, duration, font_1, meme_path, username):
-        self.path = fr'C:\Users\{username}\Box\Prospect Management & Financial Analytics\PM Analytics and Reporting\Deliverables\24.10.28 ARD Wrapped 24\archetype_images2'
-        self.images = [r'\1st layer.png',
-                  r'\2nd layer.png',
-                  r'\3rd layer.png',
-                  r'\4th layer.png',
-                  r'\5th layer.png']
+    def __init__(self, dictionary, background_color, duration, font_1, meme_path, username, path, images):
+        self.path = path
+        self.images = images
         self.locator = self.path + r'\Locator.png'
         self.question = self.path + r'\Question.png'
 

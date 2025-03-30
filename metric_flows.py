@@ -110,7 +110,7 @@ def write_contacts_clip(go_row: dict, bg_color: tuple, font: str, start_time: in
     return contacts_clips_list, start_time + running_duration
 
 
-def run_contacts(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list):
+def run_contacts(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list, colors):
     """
     This function takes in a GO dictionary, determines the slides to use in the contacts sequence,
     and creates the list of clips to return
@@ -211,7 +211,7 @@ def write_visits_clip(go_row: dict, bg_color: tuple, font: str, start_time: int,
     return visits_clips_list, running_duration + start_time
 
 
-def run_visits(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list):
+def run_visits(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list, colors):
     """
     This function takes in a GO dictionary, determines the slides to use in the visits sequence,
     and creates the list of clips to return
@@ -322,7 +322,7 @@ def write_qualifications_clip(go_row: dict, bg_color: tuple, font: str, start_ti
 
     return qualifications_clips_list, running_duration + start_time
 
-def run_qualifications(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list):
+def run_qualifications(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list, colors):
     """
     This function takes in a GO dictionary, determines the slides to use in the qualifications sequence,
     and creates the list of clips to return
@@ -434,7 +434,7 @@ def write_asks_clips(go_row: dict, bg_color: tuple, font: str, start_time: int, 
     return asks_clips_list, running_duration + start_time
 
 
-def run_asks(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list):
+def run_asks(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list, colors):
     """
     This function takes in a GO dictionary, determines the slides to use in the asks sequence,
     and creates the list of clips to return
@@ -450,9 +450,8 @@ def run_asks(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: 
 
 
 
-graph_colors = [(234, 170, 0), (222, 124, 0), (120, 157, 74), (39, 93, 56), (0, 115, 150), (89, 49, 95), (164, 52, 58)]
 
-def make_pie_chart(go_row: dict, font: str):
+def make_pie_chart(go_row: dict, font: str, graph_colors):
     """
     This function takes in a GO dictionary and a background color and creates a png image of a pie chart for their most booked units.
     :param go_row: Single row in Wrapped dataframe in dictionary form
@@ -509,7 +508,7 @@ def plan_booked(go_row: dict, percentile_threshold: float):
 
 
 def write_booked_clips(go_row: dict, bg_color: tuple, font: str, start_time: int,
-                       clip_duration: int, percentile_trigger: bool, photos: list):
+                       clip_duration: int, percentile_trigger: bool, photos: list, graph_colors):
     """
     This function takes in a GO dict and returns a list of all booked clips.
 
@@ -565,7 +564,7 @@ def write_booked_clips(go_row: dict, bg_color: tuple, font: str, start_time: int
         [vfx.CrossFadeIn(2).copy(), vfx.CrossFadeOut(1.5).copy()])
     booked_clips_list.append(pie_chart_intro)
 
-    pie_file_path = make_pie_chart(go_row, font)
+    pie_file_path = make_pie_chart(go_row, font, graph_colors)
     pie_clip = (ImageClip(pie_file_path).with_duration(8).with_start(start_time+running_duration)
                 .with_position(('center', 'bottom')).with_effects(
         [vfx.CrossFadeIn(2).copy(), vfx.CrossFadeOut(1.5).copy(), vfx.Margin(bottom=350, opacity=0)]))
@@ -576,10 +575,11 @@ def write_booked_clips(go_row: dict, bg_color: tuple, font: str, start_time: int
 
     return booked_clips_list, running_duration + start_time
 
-def run_booked(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list):
+def run_booked(go_row: dict, bg_color: tuple, start_time: int, font: str, photos: list, colors):
     """
     This function takes in a GO dictionary, determines the slides to use in the booked sequence,
     and creates the list of clips to return
+    :param colors:
     :param go_row: Single row in Wrapped dataframe in dictionary form
     :param bg_color: The color to use for the background
     :param start_time: Start time (in seconds) of booked sequence
@@ -588,4 +588,4 @@ def run_booked(go_row: dict, bg_color: tuple, start_time: int, font: str, photos
     :return: List of clips for booked sequence, Duration of full sequence
     """
     booked_duration, percentile_slide = plan_booked(go_row, percentile_slide_threshold)
-    return write_booked_clips(go_row, bg_color, font, start_time, booked_duration, percentile_slide, photos)
+    return write_booked_clips(go_row, bg_color, font, start_time, booked_duration, percentile_slide, photos, colors)
