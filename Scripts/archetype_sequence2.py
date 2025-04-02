@@ -54,23 +54,6 @@ class Archetype:
 
         self.stop_duration_sum += standard_duration + interval
 
-        long_text_contents = """But only ARD has the Afsahi-
-        Malmquist fundraiser type 
-        test to describe your 
-        fundraising style. 
-    
-    It's based on your real results 
-    from 2024 and we're 
-    confident you'll maybe, 
-    probably learn something 
-    about yourself. 
-    
-    Just like Myers Briggs - we 
-    know you may have some thoughts;  
-    please email: 
-    armin@uchicago.edu 
-    to share any feedback."""
-
         long_text_contents2 = (
  """But only ARD has the 
 Afsahi-Malmquist
@@ -289,7 +272,7 @@ what it means:
         closing_text1 = """
 Let us know,
 do you think your
-Afsahi-Malmquist
+CASE DRIVE
 Fundraiser type 
 is accurate?
 """

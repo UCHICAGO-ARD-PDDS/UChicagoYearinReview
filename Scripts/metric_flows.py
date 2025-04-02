@@ -1,4 +1,4 @@
-from metric_clips import *
+from Scripts.metric_clips import *
 from matplotlib import font_manager
 import textwrap
 import matplotlib.pyplot as plt

@@ -7,11 +7,11 @@ import win32com.client as win32
 from datetime import date, datetime
 from great_tables import GT
 from moviepy import *
-from start_sequence import start_series
-from archetype_sequence2 import Archetype
-from close_sequence2 import close
-from metric_clips import *
-from metric_flows import *
+from Scripts.start_sequence import start_series
+from Scripts.archetype_sequence2 import Archetype
+from Scripts.close_sequence2 import close
+from Scripts.metric_clips import *
+from Scripts.metric_flows import *
 import random
 # from pyfonts import load_font
 
@@ -38,6 +38,7 @@ class YearInReview():
                  logo,
                  archetype_path,
                  archetype_images):
+        print("init")
         self.list_of_music = self.get_file_paths(music_folder_path)
         self.uchicago_background_colors = background_colors
         self.list_of_photos = self.get_file_paths(photo_folder_path)
@@ -60,7 +61,7 @@ class YearInReview():
         list_of_videos = ['','']
 
         for i in range(0, len(df_go_metrics.index)):
-
+            print(i)
             # for i in error_numbers2:
             # for i in range(random_number, random_number+1):
 
@@ -70,7 +71,7 @@ class YearInReview():
             print(go_name)
 
             random_colors = random.sample(self.uchicago_background_colors, 5)
-            random_photos = random.sample(self.list_of_photos, 20)
+            random_photos = random.sample(self.list_of_photos, 0)
             random_videos = random.sample(list_of_videos, 2)
             random_audio = random.sample(self.list_of_music, 1)
             random_intro_meme = random.sample(list_of_intro_memes, 1)
