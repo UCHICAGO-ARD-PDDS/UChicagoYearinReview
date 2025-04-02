@@ -25,8 +25,7 @@ def start_series(dictionary, background_color, font_1, font_2, meme_path, userna
             )
     video_list.append(phoenix)
 
-    text1 = "Thanks \n to all of \n your great work, \n \nARD \nhad a spectacular \n2024!"
-    text2 = "University\nof Chicago's\nARD\nhad a\nspectacular\n2024!"
+    text2 = "CASE\nDRIVE\nhad a\nspectacular\n2024!"
 
     intro_text = (TextClip(
         font=font_1,

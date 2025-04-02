@@ -36,12 +36,15 @@ music_folder_path = r".\Sample Files\music"
     # fr"C:\Users\{username}\Box\Prospect Management & Financial Analytics\PM Analytics and Reporting\Deliverables\24.10.28 ARD Wrapped 24\music"
 
 # create a list for each of the meme locations
-list_of_intro_memes = os.listdir(r".\Sample Files\data science")
-list_of_personality_memes = os.listdir(r".\Sample Files\fundraising")
-closing_memes = os.listdir(r".\Sample Files\data science")
+list_of_intro_memes = [r".\Sample Files\data science\Screenshot 2025-04-01 164517.png",
+                       r".\Sample Files\data science\Screenshot 2025-04-01 164557.png"]
+list_of_personality_memes = [r".\Sample Files\personality memes\picture 1.jpg",
+                             r".\Sample Files\personality memes\Picture4.jpg",]
+closing_memes = [r".\Sample Files\fundraising\62f6889d87ee5be53047b5c2_meme-5.jpg",
+                 r".\Sample Files\fundraising\62f6888076402766f7190845_meme-2.jpg"]
 
 # Where do you want the videos to be created?
-output_path = fr"C:\Users\{username}\Downloads"
+output_path = fr"C:\Users\{username}\Downloads\Test Video"
 
 # Dataframe that contains productivity details for each gift officer.
 # The code will iterate through this list
